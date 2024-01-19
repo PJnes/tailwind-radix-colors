@@ -1,0 +1,36 @@
+{
+  "name": "@squirgle/tailwind-radix-colors",
+  "version": "0.0.1",
+  "description": "The Radix colour scales available in TailwindCSS",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "prettier --write .",
+    "build": "rimraf dist && tsc --removeComments",
+    "test": "npx tailwindcss -i node_modules/tailwindcss/tailwind.css -o test/output.css -c test/tailwind.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PJnes/tailwind-radix-colors.git"
+  },
+  "keywords": [
+    "tailwind",
+    "radix"
+  ],
+  "author": {
+    "name": "Paul Jones",
+    "url": "https://pauljones.io"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PJnes/tailwind-radix-colors/issues"
+  },
+  "homepage": "https://github.com/PJnes/tailwind-radix-colors#readme",
+  "devDependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "@types/node": "^20.11.5",
+    "prettier": "^3.2.4",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}
