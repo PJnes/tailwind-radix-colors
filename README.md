@@ -164,6 +164,7 @@ This will produce:
 .bg-rdx-amber-1 {
   background-color: var(--radix-amber-1, #fefdfb);
 }
+```
 
 ## Configuration Options
 
