@@ -41,6 +41,8 @@ type Options = {
   classPrefix?: string;
   colors?: Color[] | Record<string, Color>;
   darkModeSelector?: string;
+  lightModeSelector?: string;
+  systemModeSelector?: string;
   respectMediaQuery?: boolean;
   variablePrefix?: string;
 };
@@ -85,6 +87,8 @@ export = plugin.withOptions(
   ({
     colors = [...allColors],
     darkModeSelector,
+    lightModeSelector,
+    systemModeSelector,
     respectMediaQuery = true,
     variablePrefix,
   }: Options) => {
@@ -112,10 +116,28 @@ export = plugin.withOptions(
         },
       ];
 
-      if (respectMediaQuery) {
+      if (respectMediaQuery && !systemModeSelector) {
         styles.push({
           "@media (prefers-color-scheme: dark)": {
             ":root": darkStyles,
+          },
+        });
+      }
+
+      if (systemModeSelector) {
+        styles.push({
+          "@media (prefers-color-scheme: dark)": {
+            [systemModeSelector]: {
+              ...darkStyles,
+            },
+          },
+        });
+      }
+
+      if (lightModeSelector) {
+        styles.push({
+          [lightModeSelector]: {
+            ...lightStyles,
           },
         });
       }

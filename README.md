@@ -127,6 +127,52 @@ This will produce:
 }
 ```
 
+### Providing a light, dark and system selector
+
+For maximum flexibility you can provide selectors for light mode, dark mode, and the system mode. This will allow you to switch between the light and dark scales based on the provided selectors, or let the user choose to use their system preference.
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    // ...
+  },
+  plugins: [
+    require('@squirgle/tailwind-radix-colors')({
+      darkModeSelector: '[data-theme="dark"]',
+      lightModeSelector: '[data-theme="light"]',
+      systemModeSelector: '[data-theme="system"]',
+    }),
+  ],
+}
+```
+
+Note that providing a system mode selector will override the `respectMediaQuery` option. This will produce:
+
+```css
+:root {
+  --amber-1: #fefdfb;
+  /* ...and the rest */
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-mode="auto"] {
+    --amber-1: #16120c;
+    /* ...and the rest */
+  }
+}
+
+[data-mode="light"] {
+  --amber-1: #fefdfb;
+  /* ...and the rest */
+}
+
+[data-mode="dark"] {
+  --amber-1: #16120c;
+  /* ...and the rest */
+}
+```
+
 ### Providing a prefix
 
 If you are worried about the custom properties clashing with other custom properties or class names in your project, you can specify a prefix seprately for both the class names and css variables in the plugin options. They don't need to match:

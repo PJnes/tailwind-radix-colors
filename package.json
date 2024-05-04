@@ -1,6 +1,6 @@
 {
   "name": "@squirgle/tailwind-radix-colors",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "The Radix colour scales available in TailwindCSS",
   "main": "dist/index.js",
   "scripts": {
