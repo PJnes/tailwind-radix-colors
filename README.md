@@ -5,7 +5,7 @@ This is a [Tailwind CSS](https://tailwindcss.com) plugin that generates a set of
 ## Installation
 
 ```bash
-npm install --dev @squirgle/tailwind-radix-colors
+npm install --save-dev @squirgle/tailwind-radix-colors
 ```
 
 ## Usage
